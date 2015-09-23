@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="natureApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+    <body ng-controller="natureCtrl">
+
+        <ion-pane>
+
+            <ion-header-bar class="bar-light">
+                <h1 class="title">Pesquisa {{name}}</h1>
+                <p>
+                    <small>ultima atualização - {{dtdataJson}}</small>
+                </p>                
+            </ion-header-bar>
+           
+            <ion-content padding="true" class="has-header">
+               
+                <form>
+                    
+                     <label class="item item-input" name="city">
+                        <span class="input-label">Pequisar por:</span> 
+                        <input type="text" placeholder="      Informe a cidade a ser pesquisar" data-ng-model="cidade">
+                    </label>
+           
+                     <label class="item item-input" name="city">
+                        <span class="input-label">Cidade</span>
+                        {{name}}       <img src="{{icon}}">
+                    </label>
+                    
+                    <label class="item item-input" name="temperatura">
+                        <span class="input-label">Temperatura</span>                        
+                        <input type="text" readonly value="{{temp}} °C">                        
+                    </label>
+                    
+                    <label class="item item-input" name="descricao">
+                        <span class="input-label">Descrição</span>
+                        <input type="text" readonly value="{{description}}">
+                    </label>
+                    
+                    <label class="item item-input" name="latitude">
+                        <span class="input-label">Latitude</span>
+                        <input type="text" readonly value="{{lat}}">
+                    </label>
+                    <label class="item item-input" name="longitude">
+                        <span class="input-label">Longitude</span>
+                        <input type="text" readonly value="{{lon}}">
+                    </label>
+
+                    <label class="item item-input" name="umidade">
+                        <span class="input-label">Umidade</span>
+                        <input type="text" readonly value="{{humidity}} %">
+                    </label>
+
+                    <label class="item item-input" name="vento">
+                        <span class="input-label">Vento</span>
+                        <input type="text" readonly value="{{speed}} m/s">
+                    </label>
+
+                    <label class="item item-input" name="pressao">
+                        <span class="input-label">Pressão</span>
+                        <input type="text" readonly value="{{pressure}} hpa">
+                    </label>
+
+                </form>
+                
+                <br><br><br><br>
+                
+                <button class="button button-block button-dark" ng-click="getNature(cidade)">Pesquisar</button>               
+
+            </ion-content>
+
+        </ion-pane>
+  </body>
+</html>
